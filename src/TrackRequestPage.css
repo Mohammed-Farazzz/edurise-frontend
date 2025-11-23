@@ -1,0 +1,43 @@
+
+/* NOTE: no global selectors, everything is prefixed with .track-request */
+
+.track-request {
+  background-color: #f9f9f9;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.track-request .box {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  max-width: 92vw;
+}
+
+.track-request h1 {
+  color: #a60059;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.track-request p {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.track-request .status {
+  margin-top: 25px;
+  font-size: 20px;
+}
+
+.track-request .approved { color: green; }
+.track-request .rejected { color: red; }
+.track-request .pending  { color: orange; }

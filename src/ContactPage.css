@@ -1,0 +1,184 @@
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  font-family: 'Segoe UI', sans-serif; 
+} 
+
+body { 
+  background-color: #fff; 
+  color: #333; 
+} 
+
+/* Navbar */
+.navbar { 
+  background-color: white; 
+  padding: 20px 50px; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+} 
+
+.logo img { 
+  height: 40px; 
+  vertical-align: middle; 
+} 
+
+.nav-links { 
+  display: flex; 
+  list-style: none; 
+  gap: 25px; 
+} 
+
+nav a { 
+  text-decoration: none; 
+  color: #333; 
+  font-weight: 500; 
+} 
+
+nav a.active { 
+  color: #a60059; 
+  font-weight: 600; 
+} 
+
+.login-dropdown { 
+  position: relative; 
+  display: inline-block; 
+} 
+
+.login-dropdown button { 
+  background-color: #930046; 
+  color: white; 
+  padding: 10px 20px; 
+  border: none; 
+  cursor: pointer; 
+  border-radius: 20px; 
+} 
+
+.dropdown-content { 
+  display: none; 
+  position: absolute; 
+  right: 0; 
+  background-color: white; 
+  min-width: 160px; 
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); 
+  z-index: 1; 
+} 
+
+.dropdown-content a { 
+  color: #333; 
+  padding: 12px 16px; 
+  text-decoration: none; 
+  display: block; 
+} 
+
+.dropdown-content a:hover { 
+  background-color: #f0f0f0; 
+} 
+
+/* Contact Hero */
+.contact-hero { 
+  background-color: #9a1c4d; 
+  color: white; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 60px 40px; 
+  flex-wrap: wrap; 
+} 
+
+.contact-hero-text { 
+  max-width: 600px; 
+} 
+
+.contact-hero h2 { 
+  font-size: 36px; 
+  margin-bottom: 15px;
+  color:#0a090a; 
+} 
+
+.contact-hero p { 
+  font-size: 18px; 
+  line-height: 1.6; 
+} 
+
+.contact-hero-img img { 
+  max-width: 350px; 
+  width: 100%; 
+  border-radius: 8px; 
+} 
+
+/* Tabs */
+.contact-tabs { 
+  display: flex; 
+  justify-content: center; 
+  margin-top: 30px; 
+  gap: 60px; 
+  font-weight: 500; 
+} 
+
+.contact-tabs .tab { 
+  padding-bottom: 8px; 
+  cursor: pointer; 
+  border-bottom: 2px solid transparent; 
+  color: gray; 
+} 
+
+.contact-tabs .tab.active { 
+  border-bottom: 2px solid #a60059; 
+  color: #a60059; 
+} 
+
+/* Contact Details */
+.contact-details { 
+  text-align: center; 
+  padding: 30px 60px; 
+} 
+
+.contact-details .info { 
+  max-width: 800px; 
+  margin: auto; 
+  text-align: left; 
+  margin-top: 20px; 
+} 
+
+.info p { 
+  margin: 10px 0; 
+  font-size: 16px; 
+} 
+
+.info a { 
+  color: #0a090a; 
+  text-decoration: none; 
+} 
+
+.info a:hover { 
+  text-decoration: underline; 
+} 
+
+.info i { 
+  margin-right: 10px; 
+} 
+
+@media (max-width: 768px) { 
+  .nav-links { 
+    gap: 15px; 
+  } 
+  .contact-hero { 
+    flex-direction: column; 
+    text-align: center; 
+    padding: 40px 20px; 
+  } 
+  .contact-hero-text, 
+  .contact-hero-img { 
+    max-width: 100%; 
+    margin-bottom: 20px; 
+  } 
+  .contact-tabs { 
+    gap: 20px; 
+  } 
+  .contact-details { 
+    padding: 20px; 
+  } 
+}

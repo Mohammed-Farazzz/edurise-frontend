@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fefefe;
+  color: #333;
+}
+
+.student-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #a60059;
+  color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 35px;
+}
+
+.logo span {
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #fff;
+}
+
+.dashboard-title {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  flex: 1;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn {
+  background-color: #fff;
+  color: #a60059;
+  border: 2px solid #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #f3f3f3;
+  color: #880047;
+}
+
+.dashboard-content {
+  max-width: 700px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.dashboard-content h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.dashboard-content p {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #333;
+}
+
+.fill-btn {
+  display: inline-block;
+  margin: 32px auto 16px auto;
+  padding: 12px 38px;
+  background: #a60059;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(166, 0, 89, 0.08);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.fill-btn:hover {
+  background: #880047;
+}
+
+.already-filled {
+  margin-top: 25px;
+  margin-bottom: 0;
+  color: #555;
+  font-size: 17px;
+}
+
