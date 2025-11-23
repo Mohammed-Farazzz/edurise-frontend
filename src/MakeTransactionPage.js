@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useStudents } from "./StudentContext";
-import "./MakeTransactionPage.css"; // Create this for styling (see below)
+import "./MakeTransactionPage.css"; // For styling
 
 const MakeTransactionPage = () => {
-  const { id } = useParams(); // Get the student ID from the URL
+  const { id } = useParams(); 
   const { approvedStudents } = useStudents();
   const [student, setStudent] = useState(null);
   const [amount, setAmount] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   useEffect(() => {
-    // Find the student by ID from the approvedStudents list
-    const selectedStudent = approvedStudents.find((s) => s.id === parseInt(id));
+    const selectedStudent = approvedStudents.find(
+      (s) => s.id === parseInt(id)
+    );
     if (selectedStudent) {
       setStudent(selectedStudent);
     } else {
@@ -29,7 +32,8 @@ const MakeTransactionPage = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://localhost:9796/api/admin/donations`, {
+
+      const res = await fetch(`${API_BASE}/api/admin/donations`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -44,7 +48,7 @@ const MakeTransactionPage = () => {
       if (!res.ok) throw new Error("Transaction failed");
 
       alert("Transaction successful!");
-      navigate("/admin/manage-students"); // Redirect to manage students
+      navigate("/admin/manage-students");
     } catch (err) {
       alert(err.message);
     }

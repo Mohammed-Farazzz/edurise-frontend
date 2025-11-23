@@ -23,10 +23,13 @@ function FillDetailsPage() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:9796/api/students/details", {
+  e.preventDefault();
+  try {
+    const token = localStorage.getItem("token");
+
+    const response = await fetch(
+      `${process.env.REACT_APP_API_BASE_URL}/api/students/details`,
+      {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -36,7 +39,9 @@ function FillDetailsPage() {
           ...formData,
           status: "PENDING",
         }),
-      });
+      }
+    );
+
 
       if (response.ok) {
         navigate("/success");

@@ -1,19 +1,26 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStudents } from "./StudentContext";
-import "./ManageStudentsPage.css"; // Create this file
+import "./ManageStudentsPage.css";
 
 const ManageStudentsPage = () => {
   const { approvedStudents, setApprovedStudents } = useStudents();
   const navigate = useNavigate();
 
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   useEffect(() => {
     const fetchApproved = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:9796/api/admin/students/approved", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+
+        const res = await fetch(
+          `${API_BASE}/api/admin/students/approved`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+
         const data = await res.json();
         setApprovedStudents(data);
       } catch (err) {
@@ -22,7 +29,7 @@ const ManageStudentsPage = () => {
     };
 
     fetchApproved();
-  }, [setApprovedStudents]);
+  }, [setApprovedStudents, API_BASE]);
 
   return (
     <div className="manage-container">
@@ -35,7 +42,9 @@ const ManageStudentsPage = () => {
             <div key={s.id} className="student-card">
               <div className="student-info">
                 <h3>{s.fullName}</h3>
-                <p>{s.course} - {s.institution}</p>
+                <p>
+                  {s.course} - {s.institution}
+                </p>
                 <p className="amount">Needed: ₹{s.neededAmount}</p>
               </div>
               <div>
@@ -55,3 +64,4 @@ const ManageStudentsPage = () => {
 };
 
 export default ManageStudentsPage;
+

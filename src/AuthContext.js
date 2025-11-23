@@ -8,9 +8,12 @@ export const AuthProvider = ({ children }) => {
   const [userRole, setUserRole] = useState(() => localStorage.getItem('role') || null);
   const navigate = useNavigate();
 
+  // Base URL from .env (VERY IMPORTANT)
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
+
   const login = async (email, password) => {
     try {
-      const response = await fetch('http://localhost:9796/api/auth/login', {
+      const response = await fetch(`${API_BASE}/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -22,8 +25,10 @@ export const AuthProvider = ({ children }) => {
         const data = await response.json();
         setToken(data.token);
         setUserRole(data.role);
+
         localStorage.setItem('token', data.token);
         localStorage.setItem('role', data.role);
+
         // Redirect based on role
         if (data.role === 'ADMIN') navigate('/admin');
         else if (data.role === 'STUDENT') navigate('/student');
@@ -40,7 +45,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (fullName, email, password, role) => {
     try {
-      const response = await fetch('http://localhost:9796/api/auth/register', {
+      const response = await fetch(`${API_BASE}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

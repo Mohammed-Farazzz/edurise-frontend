@@ -1,17 +1,24 @@
 import React, { useEffect } from "react";
 import { useStudents } from "./StudentContext";
-import "./ReviewApplicationsPage.css"; // Create this file for styling (see below)
+import "./ReviewApplicationsPage.css";
 
 const ReviewApplicationsPage = () => {
   const { pendingStudents, setPendingStudents, setApprovedStudents } = useStudents();
+
+  const API_BASE = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
     const fetchPending = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:9796/api/admin/students/pending", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+
+        const res = await fetch(
+          `${API_BASE}/api/admin/students/pending`,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+
         const data = await res.json();
         setPendingStudents(data);
       } catch (err) {
@@ -20,15 +27,14 @@ const ReviewApplicationsPage = () => {
     };
 
     fetchPending();
-  }, [setPendingStudents]);
+  }, [setPendingStudents, API_BASE]);
 
   const handleDecision = async (id, status) => {
     try {
       const token = localStorage.getItem("token");
 
-      // Make the correct PUT request with status as a query parameter
       const res = await fetch(
-        `http://localhost:9796/api/admin/students/${id}/status?status=${status}`,
+        `${API_BASE}/api/admin/students/${id}/status?status=${status}`,
         {
           method: "PUT",
           headers: {
@@ -40,7 +46,6 @@ const ReviewApplicationsPage = () => {
 
       if (!res.ok) throw new Error(`Failed to update student ${status}`);
 
-      // Update the state for both approved and pending students
       if (status === "APPROVED") {
         const student = pendingStudents.find((s) => s.id === id);
         setPendingStudents((prev) => prev.filter((s) => s.id !== id));
@@ -83,5 +88,4 @@ const ReviewApplicationsPage = () => {
 };
 
 export default ReviewApplicationsPage;
-
 

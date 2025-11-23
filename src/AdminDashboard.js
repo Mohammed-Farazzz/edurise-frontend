@@ -20,7 +20,7 @@ const AdminDashboard = () => {
       try {
         const token = localStorage.getItem("token");
 
-        const res = await fetch("http://localhost:9796/api/admin/stats", {
+        const res = await fetch("${process.env.REACT_APP_API_BASE_URL}/api/admin/stats", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
