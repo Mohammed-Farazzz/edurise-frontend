@@ -29,15 +29,25 @@ header {
   font-weight: bold;
 }
 
+/* Container to place logout button at top-right */
+.logout-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Compact logout button */
 .logout-btn {
   background-color: #fff;
   color: #a60059;
   border: 2px solid #fff;
-  padding: 8px 16px;
-  border-radius: 20px;
+  padding: 8px 16px;       /* smaller size */
+  border-radius: 20px;     /* less rounded */
   cursor: pointer;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;         /* smaller font */
+  width: auto;             /* prevents stretching */
+  display: inline-block;   /* prevents full-width issue */
   transition: 0.3s;
 }
 
@@ -46,11 +56,12 @@ header {
   color: #880047;
 }
 
+
 /* Container */
 .container {
   max-width: 1100px;
   margin: 30px auto;
-  padding: 20px;
+  padding: 2px;
 }
 
 h2 {
@@ -100,7 +111,7 @@ h2 {
 .nav-buttons button {
   background-color: #98004f;
   color: white;
-  padding: 12px 24px;
+  padding: 20px 2px;
   border-radius: 30px;
   font-weight: bold;
   border: none;
