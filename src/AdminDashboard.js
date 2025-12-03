@@ -40,24 +40,26 @@ const AdminDashboard = () => {
 
   return (
     <div>
-      <header>
-        <div className="logo-container">
-          <img
-            src="https://as2.ftcdn.net/v2/jpg/01/99/05/35/1000_F_199053513_reNOz8CqNJx2zBxbhOUCTDpjcl3tb7CI.jpg"
-            alt="EduRise Logo"
-          />
-          <span className="dashboard-title">Admin Dashboard</span>
-        </div>
-        <button
-          className="logout-btn"
-          onClick={() => {
-            logout();
-            navigate("/login");
-          }}
-        >
-          Logout
-        </button>
-      </header>
+      <header className="header-container">
+  <div className="logo-container">
+    <img
+      src="https://as2.ftcdn.net/v2/jpg/01/99/05/35/1000_F_199053513_reNOz8CqNJx2zBxbhOUCTDpjcl3tb7CI.jpg"
+      alt="EduRise Logo"
+    />
+    <span className="dashboard-title">Admin Dashboard</span>
+  </div>
+
+  <button
+    className="logout-btn"
+    onClick={() => {
+      logout();
+      navigate("/login");
+    }}
+  >
+    Logout
+  </button>
+</header>
+
 
       <div className="container">
         <h2>Welcome, Admin 👨‍💼</h2>

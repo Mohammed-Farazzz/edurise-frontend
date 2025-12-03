@@ -5,16 +5,14 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: #f8f8f8;
 }
-
-/* Header */
 header {
-  background-color: #98004f;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
+  width: 100%;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 10px 20px;
 }
+
 
 .logo-container {
   display: flex;
@@ -32,19 +30,20 @@ header {
 }
 
 .logout-btn {
-  background-color: white;
-  color: #98004f;
-  border: none;
-  padding: 8px 20px;
-  border-radius: 25px; /* round pill */
-  font-weight: bold;
+  background-color: #fff;
+  color: #a60059;
+  border: 2px solid #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
   cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s;
 }
 
 .logout-btn:hover {
-  background-color: #f1f1f1;
-  color: #7a0040;
+  background-color: #f3f3f3;
+  color: #880047;
 }
 
 /* Container */
@@ -72,9 +71,9 @@ h2 {
   background-color: white;
   border-left: 6px solid #98004f;
   padding: 20px;
-  border-radius: 15px; /* rounded look */
+  border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center; /* center content */
+  text-align: center;
 }
 
 .stat-card h3 {
@@ -102,7 +101,7 @@ h2 {
   background-color: #98004f;
   color: white;
   padding: 12px 24px;
-  border-radius: 30px; /* pill shape */
+  border-radius: 30px;
   font-weight: bold;
   border: none;
   cursor: pointer;
@@ -111,5 +110,6 @@ h2 {
 
 .nav-buttons button:hover {
   background-color: #7a0040;
-  transform: translateY(-2px); /* hover lift */
+  transform: translateY(-2px);
 }
+
