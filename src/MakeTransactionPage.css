@@ -1,6 +1,7 @@
 .transaction-container {
   padding: 2rem;
   background: #f8f8f8;
+  min-height: calc(100vh - 80px);
 }
 
 .page-title {
@@ -17,6 +18,11 @@
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
   padding: 20px;
   margin-bottom: 30px;
+  transition: all 0.3s ease;
+}
+
+.student-info-card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
 }
 
 .student-info-card h3 {
@@ -35,6 +41,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
 }
 
 .amount-input {
@@ -44,7 +51,13 @@
   border: 1px solid #ccc;
   width: 100%;
   max-width: 300px;
-  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.amount-input:focus {
+  outline: none;
+  border-color: #98004f;
+  box-shadow: 0 0 0 3px rgba(152, 0, 79, 0.1);
 }
 
 .transaction-btn {
@@ -57,11 +70,54 @@
   cursor: pointer;
   width: 100%;
   max-width: 300px;
-  margin: 0 auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transaction-btn:hover {
+  background-color: #7a0040;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(122, 0, 64, 0.3);
+}
+
+.transaction-btn:active {
+  transform: translateY(0);
 }
 
 .error-msg {
   color: red;
   font-weight: bold;
   text-align: center;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .transaction-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .page-title {
+    font-size: 20px;
+  }
+
+  .student-info-card {
+    padding: 15px;
+  }
+
+  .student-info-card h3 {
+    font-size: 16px;
+  }
+
+  .student-info-card p {
+    font-size: 13px;
+  }
+
+  .amount-input {
+    font-size: 15px;
+    max-width: 100%;
+  }
+
+  .transaction-btn {
+    max-width: 100%;
+    padding: 12px 20px;
+  }
 }

@@ -4,10 +4,12 @@
   box-sizing: border-box;
   font-family: 'Segoe UI', sans-serif;
 }
+
 body {
   background: #fff;
   color: #333;
 }
+
 /* Shared container */
 .container-auth {
   background-color: #7b2342;
@@ -16,7 +18,7 @@ body {
   max-width: 750px;
   display: flex;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   color: white;
   margin: auto;
 }
@@ -31,15 +33,18 @@ body {
   justify-content: center;
   border-right: 1px solid #ffffff33;
 }
+
 .left-box-auth img {
   width: 70px;
   margin-bottom: 20px;
 }
+
 .left-box-auth h2 {
   font-size: 20px;
   margin-bottom: 10px;
   color: #f0dce2;
 }
+
 .left-box-auth p {
   font-size: 13px;
   color: #f0dce2;
@@ -49,12 +54,17 @@ body {
   width: 65%;
   padding: 40px 30px;
 }
+
 .right-box-auth h3 {
   margin-bottom: 20px;
   font-weight: 500;
   color: #fff;
 }
-.form-group { margin-bottom: 15px; }
+
+.form-group {
+  margin-bottom: 15px;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -64,7 +74,18 @@ select {
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 15px;
+  transition: all 0.3s ease;
 }
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus {
+  outline: none;
+  border-color: #a60059;
+  box-shadow: 0 0 0 3px rgba(166, 0, 89, 0.1);
+}
+
 button {
   width: 100%;
   padding: 12px;
@@ -76,41 +97,70 @@ button {
   margin-top: 10px;
   cursor: pointer;
   font-weight: bold;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 button:hover {
   background-color: #f1f1f1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
+button:active {
+  transform: translateY(0);
+}
+
 .options-auth {
   display: flex;
   justify-content: space-between;
   margin-top: 15px;
   font-size: 14px;
 }
+
 .options-auth a {
   color: #fff;
   text-decoration: underline;
   font-weight: 500;
+  transition: all 0.2s ease;
 }
-.signup-link-auth, .login-link-auth {
+
+.options-auth a:hover {
+  color: #f0dce2;
+}
+
+.signup-link-auth,
+.login-link-auth {
   text-align: center;
   margin-top: 25px;
   font-size: 14px;
 }
-.signup-link-auth a, .login-link-auth a {
+
+.signup-link-auth a,
+.login-link-auth a {
   color: #fff;
   text-decoration: underline;
   font-weight: 500;
+  transition: all 0.2s ease;
 }
+
+.signup-link-auth a:hover,
+.login-link-auth a:hover {
+  color: #f0dce2;
+}
+
 @media screen and (max-width: 768px) {
   .container-auth {
     flex-direction: column;
     max-width: 97vw;
   }
-  .left-box-auth, .right-box-auth {
+
+  .left-box-auth,
+  .right-box-auth {
     width: 100%;
     border-right: none;
   }
 }
+
 .auth-center-wrap {
   min-height: 100vh;
   width: 100vw;

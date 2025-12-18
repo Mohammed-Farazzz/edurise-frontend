@@ -4,6 +4,7 @@ import "./DonatePage.css";
 
 const Donate = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -56,7 +57,8 @@ const Donate = () => {
             </li>
           </ul>
 
-          <div className="login-dropdown" onClick={(e) => e.stopPropagation()}>
+          {/* Desktop Login Dropdown */}
+          <div className="login-dropdown desktop-only" onClick={(e) => e.stopPropagation()}>
             <button onClick={toggleDropdown}>Login ⯆</button>
             {dropdownOpen && (
               <div className="dropdown-content">
@@ -65,8 +67,26 @@ const Donate = () => {
               </div>
             )}
           </div>
+
+          {/* Mobile Hamburger Menu */}
+          <button className="hamburger" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </nav>
       </header>
+
+      {/* Mobile Menu */}
+      <div className={`mobile-menu ${mobileMenuOpen ? 'active' : ''}`}>
+        <Link to="/" onClick={() => setMobileMenuOpen(false)}>Home</Link>
+        <Link to="/donate" onClick={() => setMobileMenuOpen(false)}>Donate</Link>
+        <Link to="/pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
+        <Link to="/code-of-practice" onClick={() => setMobileMenuOpen(false)}>Code of Practice</Link>
+        <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link>
+        <Link to="/login" onClick={() => setMobileMenuOpen(false)}>Login</Link>
+        <Link to="/register" onClick={() => setMobileMenuOpen(false)}>Register</Link>
+      </div>
 
       {/* Hero Section */}
       <section className="donate-hero">

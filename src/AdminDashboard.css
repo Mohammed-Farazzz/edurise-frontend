@@ -5,6 +5,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: #f8f8f8;
 }
+
 header {
   width: 100%;
   display: flex !important;
@@ -41,19 +42,30 @@ header {
   background-color: #fff;
   color: #a60059;
   border: 2px solid #fff;
-  padding: 8px 16px;       /* smaller size */
-  border-radius: 20px;     /* less rounded */
+  padding: 8px 16px;
+  /* smaller size */
+  border-radius: 20px;
+  /* less rounded */
   cursor: pointer;
   font-weight: bold;
-  font-size: 14px;         /* smaller font */
-  width: auto;             /* prevents stretching */
-  display: inline-block;   /* prevents full-width issue */
-  transition: 0.3s;
+  font-size: 14px;
+  /* smaller font */
+  width: auto;
+  /* prevents stretching */
+  display: inline-block;
+  /* prevents full-width issue */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logout-btn:hover {
   background-color: #f3f3f3;
   color: #880047;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
 }
 
 
@@ -61,7 +73,7 @@ header {
 .container {
   max-width: 1100px;
   margin: 30px auto;
-  padding: 2px;
+  padding: 20px;
 }
 
 h2 {
@@ -85,6 +97,12 @@ h2 {
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .stat-card h3 {
@@ -111,16 +129,93 @@ h2 {
 .nav-buttons button {
   background-color: #98004f;
   color: white;
-  padding: 20px 2px;
+  padding: 20px 30px;
   border-radius: 30px;
   font-weight: bold;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-buttons button:hover {
   background-color: #7a0040;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(122, 0, 64, 0.3);
 }
 
+.nav-buttons button:active {
+  transform: translateY(0);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  header {
+    padding: 10px 15px;
+    flex-wrap: wrap;
+  }
+
+  .logo-container img {
+    height: 30px;
+  }
+
+  .dashboard-title {
+    font-size: 16px;
+  }
+
+  .logout-container {
+    position: static;
+    margin-left: auto;
+  }
+
+  .logout-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .container {
+    padding: 15px;
+    margin: 20px auto;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+
+  .stat-card h3 {
+    font-size: 18px;
+  }
+
+  .stat-card p {
+    font-size: 24px;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-buttons button {
+    width: 100%;
+    padding: 15px 20px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .container {
+    padding: 20px;
+  }
+}

@@ -5,6 +5,7 @@ import "./ContactPage.css";
 function ContactPage() {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [activeTab, setActiveTab] = useState("india");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   // Close dropdown on outside click
@@ -83,7 +84,8 @@ function ContactPage() {
               </Link>
             </li>
           </ul>
-          <div className="login-dropdown" ref={dropdownRef}>
+          {/* Desktop Login Dropdown */}
+          <div className="login-dropdown desktop-only" ref={dropdownRef}>
             <button type="button" onClick={() => setDropdownVisible(!dropdownVisible)}>
               Login ⯆
             </button>
@@ -95,8 +97,26 @@ function ContactPage() {
               <Link to="/register">Register</Link>
             </div>
           </div>
+
+          {/* Mobile Hamburger Menu */}
+          <button className="hamburger" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </nav>
       </header>
+
+      {/* Mobile Menu */}
+      <div className={`mobile-menu ${mobileMenuOpen ? 'active' : ''}`}>
+        <Link to="/" onClick={() => setMobileMenuOpen(false)}>Home</Link>
+        <Link to="/donate" onClick={() => setMobileMenuOpen(false)}>Donate</Link>
+        <Link to="/pricing" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
+        <Link to="/code-of-practice" onClick={() => setMobileMenuOpen(false)}>Code of Practice</Link>
+        <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>Contact Us</Link>
+        <Link to="/login" onClick={() => setMobileMenuOpen(false)}>Login</Link>
+        <Link to="/register" onClick={() => setMobileMenuOpen(false)}>Register</Link>
+      </div>
 
       {/* Hero */}
       <section className="contact-hero">

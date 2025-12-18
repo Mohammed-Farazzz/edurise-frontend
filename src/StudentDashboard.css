@@ -51,18 +51,25 @@ body {
   cursor: pointer;
   font-weight: bold;
   font-size: 16px;
-  transition: 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logout-btn:hover {
   background-color: #f3f3f3;
   color: #880047;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
 }
 
 .dashboard-content {
   max-width: 700px;
   margin: 60px auto;
   text-align: center;
+  padding: 0 20px;
 }
 
 .dashboard-content h1 {
@@ -89,12 +96,18 @@ body {
   font-size: 18px;
   font-weight: 500;
   box-shadow: 0 2px 8px rgba(166, 0, 89, 0.08);
-  transition: 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
 .fill-btn:hover {
   background: #880047;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(166, 0, 89, 0.2);
+}
+
+.fill-btn:active {
+  transform: translateY(0);
 }
 
 .already-filled {
@@ -104,3 +117,67 @@ body {
   font-size: 17px;
 }
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .student-header {
+    padding: 12px 15px;
+    flex-wrap: wrap;
+  }
+
+  .logo span {
+    font-size: 16px;
+  }
+
+  .logo img {
+    height: 28px;
+  }
+
+  .dashboard-title {
+    font-size: 16px;
+    width: 100%;
+    order: 3;
+    margin-top: 10px;
+  }
+
+  .logout-btn {
+    padding: 6px 14px;
+    font-size: 14px;
+  }
+
+  .dashboard-content {
+    margin: 40px auto;
+    padding: 0 15px;
+  }
+
+  .dashboard-content h1 {
+    font-size: 24px;
+  }
+
+  .dashboard-content p {
+    font-size: 16px;
+  }
+
+  .fill-btn {
+    padding: 10px 30px;
+    font-size: 16px;
+  }
+
+  .already-filled {
+    font-size: 15px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .student-header {
+    padding: 15px 25px;
+  }
+
+  .dashboard-content {
+    margin: 50px auto;
+  }
+
+  .dashboard-content h1 {
+    font-size: 26px;
+  }
+}

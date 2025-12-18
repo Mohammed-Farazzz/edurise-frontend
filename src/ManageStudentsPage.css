@@ -1,6 +1,7 @@
 .manage-container {
   padding: 2rem;
   background: #f8f8f8;
+  min-height: calc(100vh - 80px);
 }
 
 .page-title {
@@ -15,6 +16,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .student-card {
@@ -25,6 +28,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.3s ease;
+}
+
+.student-card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
 }
 
 .student-info h3 {
@@ -42,6 +51,7 @@
 .amount {
   font-weight: bold;
   color: #333;
+  font-size: 16px;
 }
 
 .transaction-btn {
@@ -52,4 +62,62 @@
   border-radius: 25px;
   font-weight: bold;
   cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transaction-btn:hover {
+  background-color: #7a0040;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(122, 0, 64, 0.3);
+}
+
+.transaction-btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .manage-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .page-title {
+    font-size: 20px;
+  }
+
+  .student-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .student-info h3 {
+    font-size: 16px;
+  }
+
+  .student-info p {
+    font-size: 13px;
+  }
+
+  .amount {
+    font-size: 15px;
+    align-self: flex-start;
+  }
+
+  .transaction-btn {
+    width: 100%;
+    padding: 10px 16px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .manage-container {
+    padding: 1.75rem;
+  }
+
+  .student-card {
+    padding: 18px;
+  }
 }

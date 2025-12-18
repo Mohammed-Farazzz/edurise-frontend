@@ -20,7 +20,7 @@
   margin-left: 10px;
   font-weight: bold;
   font-size: 20px;
-  color:#fff;
+  color: #fff;
 }
 
 .dashboard-title {
@@ -43,12 +43,18 @@
   border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
-  transition: 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logout-btn:hover {
   background-color: #f3f3f3;
   color: #880047;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
 }
 
 body {
@@ -62,6 +68,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 80px);
+  padding: 20px;
 }
 
 .form-box {
@@ -69,7 +76,8 @@ body {
   padding: 40px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   color: white;
   margin: 20px 0;
 }
@@ -87,6 +95,12 @@ body {
   border-radius: 8px;
   border: none;
   font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-box input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
 }
 
 .form-box button {
@@ -100,9 +114,76 @@ body {
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-box button:hover {
   background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.form-box button:active {
+  transform: translateY(0);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .fill-header {
+    padding: 12px 15px;
+    flex-wrap: wrap;
+  }
+
+  .fill-header .logo span {
+    font-size: 16px;
+  }
+
+  .fill-header .logo img {
+    height: 28px;
+  }
+
+  .dashboard-title {
+    font-size: 16px;
+    width: 100%;
+    order: 3;
+    margin-top: 10px;
+  }
+
+  .logout-btn {
+    padding: 6px 14px;
+    font-size: 14px;
+  }
+
+  .form-container {
+    padding: 15px;
+  }
+
+  .form-box {
+    padding: 30px 20px;
+  }
+
+  .form-box h2 {
+    font-size: 22px;
+  }
+
+  .form-box input {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  .form-box button {
+    padding: 10px;
+    font-size: 15px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .fill-header {
+    padding: 15px 25px;
+  }
+
+  .form-box {
+    padding: 35px;
+  }
 }
